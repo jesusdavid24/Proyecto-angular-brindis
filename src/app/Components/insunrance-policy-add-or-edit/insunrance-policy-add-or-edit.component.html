@@ -1,0 +1,202 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Registro de poliza</h1>
+        </div>
+        <div class="row" style="width: 100%; text-align: end;">
+            <div class="col-md-12">
+                <button type="button" class="btn btn-primary" [routerLink]="['/polizas']">Volver a la lista</button>
+            </div>
+        </div>
+        <div class="col-md-12 mt-4">
+            <form [formGroup]='InsunrancePolicyForm' class="form-group">
+                <!--Nombre-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Titular poliza</h2>
+                        <div class="dropdown-divider"></div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="form-group col-md-6">
+                        <label>Nombre</label>
+                        <input type="text" [(ngModel)]='insunrancePolicy.AccountHolder.firstName' class="form-control" formControlName="FirstName" placeholder="Introduce el nombre">
+                        <div class="alert alert-danger" role="alert" *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+                            <div class="container-error-message" *ngIf="firstName.errors.required">
+                                El nombre es requerido
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Apellido</label>
+                        <input type="text" [(ngModel)]='insunrancePolicy.AccountHolder.lastName' class="form-control" formControlName="LastName" placeholder="Introduce el Apellido">
+                        <div class="alert alert-danger" role="alert" *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+                            <div class="container-error-message" *ngIf="lastName.errors.required">
+                                El apellido es requerido
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <!--Beneficiarios-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Beneficiario de la poliza</h2>
+                        <div class="dropdown-divider"></div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Nombre del beneficiario</label>
+                        <input type="text" [(ngModel)]='insunrancePolicy.Beneficiaries[0].Name' class="form-control" formControlName="BeneficiarieName" placeholder="Introduce el nombre completo del beneficiario">
+                        <div class="alert alert-danger" role="alert" *ngIf="beneficiarieName.invalid && (beneficiarieName.dirty || beneficiarieName.touched)">
+                            <div class="container-error-message" *ngIf="beneficiarieName.errors.required">
+                                El nombre del beneficiario es requerido
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Direccion del beneficiario</label>
+                        <input type="text" [(ngModel)]='insunrancePolicy.Beneficiaries[0].Address' class="form-control" formControlName="BeneficiarieAddress" placeholder="Introduce la direccion del beneficiario">
+                        <div class="alert alert-danger" role="alert" *ngIf="beneficiarieAddress.invalid && (beneficiarieAddress.dirty || beneficiarieAddress.touched)">
+                            <div class="container-error-message" *ngIf="beneficiarieAddress.errors.required">
+                                La direccion del beneficiario es requerida
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Telefono del beneficiario</label>
+                        <input type="text" [(ngModel)]='insunrancePolicy.Beneficiaries[0].PhoneNumber' class="form-control" formControlName="BeneficiariePhoneNumber" placeholder="Introduce el telefono del beneficiario">
+                        <div class="alert alert-danger" role="alert" *ngIf="beneficiariePhoneNumber.invalid && (beneficiariePhoneNumber.dirty || beneficiariePhoneNumber.touched)">
+                            <div class="container-error-message" *ngIf="beneficiariePhoneNumber.errors.required">
+                                El telefono del beneficiario es requerido
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Monto a pagar al beneficiario</label>
+                        <input type="text" [(ngModel)]='insunrancePolicy.Beneficiaries[0].AmoutToPay' class="form-control" formControlName="BeneficiarieAmoutToPay" placeholder="Introduce el monto a pagar">
+                        <div class="alert alert-danger" role="alert" *ngIf="beneficiarieAmoutToPay.invalid && (beneficiarieAmoutToPay.dirty || beneficiarieAmoutToPay.touched)">
+                            <div class="container-error-message" *ngIf="beneficiarieAmoutToPay.errors.required">
+                                El telefono del beneficiario es requerido
+                            </div>
+                            <div class="container-error-message" *ngIf="beneficiarieAmoutToPay.errors.max">
+                                El monto maximo es 100
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <!--Bienes-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Bienes del titular</h2>
+                        <div class="dropdown-divider"></div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Nombre del bien</label>
+                        <input type="text" [(ngModel)]='insunrancePolicy.Properties[0].Name' class="form-control" formControlName="PropertiesName" placeholder="Introduce el nombre del bien">
+                        <div class="alert alert-danger" role="alert" *ngIf="propertiesName.invalid && (propertiesName.dirty || propertiesName.touched)">
+                            <div class="container-error-message" *ngIf="propertiesName.errors.required">
+                                El nombre del bien es requerido
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleFormControlTextarea1">Describe el bien</label>
+                        <textarea [(ngModel)]='insunrancePolicy.Properties[0].Description' class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="PropertiesDescription"></textarea>
+                        <div class="alert alert-danger" role="alert" *ngIf="propertiesDescription.invalid && (propertiesDescription.dirty || propertiesDescription.touched)">
+                            <div class="container-error-message" *ngIf="propertiesDescription.errors.required">
+                                Por favor, la descripcion es requerida.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="money">Introduce el costo del bien</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                            </div>
+                            <input type="text" class="form-control" id="money" [(ngModel)]='insunrancePolicy.Properties[0].Value' formControlName="PropertiesValue">
+                            <div class="input-group-append">
+                                <span class="input-group-text">.00</span>
+                            </div>
+                        </div>
+                        <div class="alert alert-danger" role="alert" *ngIf="propertiesValue.invalid && (propertiesValue.dirty || propertiesValue.touched)">
+                            <div class="container-error-message" *ngIf="propertiesValue.errors.required">
+                                El precio es requerido
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Tiempo por el que es valido-->
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">¿Por cuanto tiempo es valido?</label>
+                            <select [(ngModel)]='insunrancePolicy.Validity' class="form-control" id="exampleFormControlSelect1" formControlName="Validity">
+								<option value="Mensual" selected>Mensual</option>
+								<option value="Bimestral">Bimestral</option>
+								<option value="Trimestral">Trimestral</option>
+								<option value="Cuatrimestral">Cuatrimestral</option>
+								<option value="Quintumestral">Quintumestral</option>
+								<option value="Semestral">Semestral</option>
+								<option value="Anual">Anual</option>
+							</select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="money">Introduce el costo que pagaras semanamente</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                            </div>
+                            <input type="text" class="form-control" id="money" [(ngModel)]='insunrancePolicy.AmoutPay' formControlName="AmoutPay">
+                            <div class="input-group-append">
+                                <span class="input-group-text">.00</span>
+                            </div>
+                        </div>
+                        <div class="alert alert-danger" role="alert" *ngIf="amoutPay.invalid && (amoutPay.dirty || amoutPay.touched)">
+                            <div class="container-error-message" *ngIf="amoutPay.errors.required">
+                                El precio es requerido
+                            </div>
+                            <div class="container-error-message" *ngIf="amoutPay.errors.min">
+                                El precio minimo es 1
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <!--Riesgos-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Riesgo a tener en cuenta </h2>
+                        <div class="dropdown-divider"></div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Nombre del riesgo</label>
+                        <input type="text" [(ngModel)]='insunrancePolicy.Risks[0].Name' class="form-control" formControlName="RiskName" placeholder="Introduce el nombre completo del beneficiario">
+                        <div class="alert alert-danger" role="alert" *ngIf="riskName.invalid && (riskName.dirty || riskName.touched)">
+                            <div class="container-error-message" *ngIf="riskName.errors.required">
+                                El nombre del riesgo es requerido
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleFormControlTextarea1">Describe el riesgo</label>
+                        <textarea [(ngModel)]='insunrancePolicy.Risks[0].Description' class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="RiskDescription"></textarea>
+                        <div class="alert alert-danger" role="alert" *ngIf="riskDescription.invalid && (riskDescription.dirty || riskDescription.touched)">
+                            <div class="container-error-message" *ngIf="riskDescription.errors.required">
+                                Por favor, la descripcion del riesgo es requerida.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown-divider"></div>
+                <button type="submit" (click)="EditOrCreateRoom()" class="btn btn-primary btn-lg">
+					Guardar
+				</button>
+
+            </form>
+
+        </div>
+    </div>
+</div>

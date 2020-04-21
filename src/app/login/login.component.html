@@ -1,0 +1,80 @@
+<!-- <div class="load">
+    <img class="loader" src="assets/images/logo.png" alt="">
+</div> -->
+<div>
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+
+
+
+                <div class="login100-more" style="background-image: url('assets/images/4412.jpg');"></div>
+
+                <div class="login100-form">
+                    <div class="row justify-content-start"><img src="assets/images/logo xd.png" width="200px" alt="Seguros"></div>
+                    <form class="loginForm  validate-form" name="loginForm" [formGroup]="loginForm">
+                        <div class="row justify-content-center login100-form-title ">INICIAR SESION</div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <div class="row justify-content-center">
+                                        <div class="has-feedback">
+                                            <input type="text" class="form-control" formControlName="email" placeholder="Correo Electronico" [ngStyle]="{'border-color': email.invalid && (email.dirty || email.touched) ? 'red' : (email.valid ? '#5cb85c' : null) }" />
+                                            <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                                                <div class="container-error-message" *ngIf="email.errors.required" style="text-align: left">
+                                                    <span class="far fa-frown form-control-feedback" style="color: red;"></span>
+                                                    <i class="fas fa-times"></i><a class="message">El campo es requerido</a>
+                                                </div>
+                                                <div class="container-error-message" *ngIf="email.errors.pattern" style="text-align:left">
+                                                    <span class="far fa-frown form-control-feedback" style="color: red;"></span>
+                                                    <i class="fas fa-times"></i><a class="message">No es una direccion valida</a>
+                                                </div>
+                                            </div>
+                                            <div *ngIf="email.valid">
+                                                <span class="fas fa-check form-control-feedback" style="color: #5cb85c;"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row justify-content-center">
+                                        <div class="has-feedback">
+                                            <input type="password" class="form-control" formControlName="password" placeholder="Contraseña" [ngStyle]="{'border-color': password.invalid && (password.dirty || password.touched) ? 'red' : (password.valid ? '#5cb85c' : null) }" />
+                                            <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                                                <div class="container-error-message" *ngIf="password.errors.required" style="text-align:left">
+                                                    <span class="far fa-frown form-control-feedback" style="color: red;"></span>
+                                                    <i class="fas fa-times"></i><a class="message">El campo es requerido</a>
+                                                </div>
+                                                <div class="container-error-message" *ngIf="password.errors.minlength" style="text-align:left">
+                                                    <i class="fas fa-times"></i><a class="message">El minimo requerido es 8 caracteres</a>
+                                                </div>
+                                            </div>
+                                            <div *ngIf="password.valid && error != null">
+                                                <span class="fas fa-check form-control-feedback" style="color: #5cb85c;"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <p>{{error}}</p>
+                        <div class="row justify-content-center pt-3">
+                            <button type="button" class="btn button-form btn-lg" (click)="login()">
+								<span *ngIf="!loading">Iniciar Sesión</span>
+								<span *ngIf="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+							</button>
+                        </div>
+                        <br>
+                        <div class="row justify-content-center">
+                            <a routerLink="../Register"><i class="fas fa-frown mr-2"></i>Aun no tienes una cuenta?</a>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

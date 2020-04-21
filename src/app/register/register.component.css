@@ -1,0 +1,19 @@
+.button-form {
+    background-color: #7854f7;
+    color: white;
+    font-weight: bold;
+    width: 70%;
+}
+
+input:focus,
+input.form-control:focus {
+    outline: none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.has-feedback {
+    width: 70%;
+}

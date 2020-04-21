@@ -1,0 +1,60 @@
+.button-form {
+    background-color: #7854f7;
+    color: white;
+    font-weight: bold;
+    width: 70%;
+}
+
+input:focus,
+input.form-control:focus {
+    outline: none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.has-feedback {
+    width: 70%;
+}
+
+
+/* @keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes rotate {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.loader {
+    display: inline-block;
+    position: relative;
+    -webkit-animation: 3s rotate linear infinite;
+    animation: 3s rotate linear infinite;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+}
+
+.load {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    background-color: rgb(0, 0, 0, 0.4);
+    background: rgb(0, 0, 0, 0.4);
+    color: rgb(0, 0, 0, 0.4);
+    z-index: 2001;
+} */

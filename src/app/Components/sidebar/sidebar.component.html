@@ -1,0 +1,13 @@
+<nav class="menu" tabindex="0">
+    <div class="smartphone-menu-trigger"></div>
+    <header class="avatar">
+        <img src="assets/images/perfil.jpg" />
+        <br>
+        <br>
+        <h6 class="name">{{user?.Name}}</h6>
+    </header>
+    <ul>
+        <li class="icon-dashboard" routerLink="/polizas"><span>Polizas</span></li>
+        <li class="icon-users" routerLink="/userList" [hidden]="isAdmin"><span>Usuarios</span></li>
+    </ul>
+</nav>

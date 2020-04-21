@@ -1,0 +1,57 @@
+<div class="container-fluid">
+    <h1>Adminstración de Usuarios</h1>
+    <div class="row" style="width: 100%; text-align: end;">
+        <div class="col-md-12">
+            <button type="button" class="btn btn-primary" [routerLink]="['/user']">Añadir nuevo usuario</button>
+        </div>
+    </div>
+    <!-- <button type="button" class="btn btn-primary" [routerLink]="['/polizas']">Ir a Polizas</button>
+	-->
+    <br>
+    <br>
+    <div class="row" style="width: 100%;">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Correo Electronico</th>
+                                <th scope="col">Tipo</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let user of users; let i = index">
+                                <th scope="row">{{i + 1}}</th>
+                                <td>{{user.Name}}</td>
+                                <td>{{user.Email}}</td>
+                                <td>{{ user.IsAdmin == true ? "Adminstrador": "Usuario" }}</td>
+                                <td>
+                                    <button type="button" [routerLink]="['/user/', user._id]" class="btn btn-primary m-1">
+                                        Editar
+                                    </button>
+                                    <button type="button" class="btn btn-danger" (click)="deleteUser(user._id)">
+                                        Eliminar
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <div class="row no-gutters" style="width: 100%; text-align: center; background-color: aliceblue;">
+                <div class="col-md-12">
+                    <h2 *ngIf="users.length == 0">
+                        No hay usuarios registrados
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

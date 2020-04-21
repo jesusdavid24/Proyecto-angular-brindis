@@ -1,0 +1,51 @@
+<div class="container-fluid">
+    <h1>Lista de polizas de seguro</h1>
+    <div class="row" style="width: 100%; text-align: end;">
+        <div class="col-md-12">
+            <button type="button" class="btn btn-primary" [routerLink]="['/poliza']">Añadir nueva poliza</button>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row" style="width: 100%;">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <table class="table table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Beneficiario</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let police of insurancePolicies; let i = index">
+                                <th scope="row">{{i + 1}}</th>
+                                <td>{{police.AccountHolder.firstName}}</td>
+                                <td>{{police.Beneficiaries[0].Name}}</td>
+                                <td>
+                                    <button type="button" [routerLink]="['/poliza/', police._id]" class="btn btn-primary m-1">
+										Editar
+									</button>
+                                    <button type="button" class="btn btn-danger" (click)="deletePolicy(police._id)">
+										Eliminar
+									</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row no-gutters" style="width: 100%; text-align: center; background-color: rgb(97, 177, 247);">
+                <div class="col-md-12">
+                    <h2 *ngIf="insurancePolicies.length == 0">
+                        No hay polizas registradas
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
